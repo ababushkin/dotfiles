@@ -2,7 +2,6 @@
 let mapleader = " "
 
 set number                " turn on line numbers
-" set relativenumber        " make line numbers relative to the current line
 set nowrap                " don't wrap lines that go over a screens width
 set cursorline            " highlight the line the cursor is on
 set showmatch
@@ -19,6 +18,9 @@ set complete+=kspell
 
 :cab f FZF
 :cab t Tags
+
+" Show hidden files in FZF
+let $FZF_DEFAULT_COMMAND = 'ag --hidden --ignore .git -l -g ""'
 
 syntax on             " Enable syntax highlighting
 filetype on           " Enable filetype detection
@@ -116,6 +118,9 @@ Plug 'slashmili/alchemist.vim'
 Plug 'elixir-editors/vim-elixir'
 Plug 'scrooloose/nerdtree'
 Plug 'tpope/vim-commentary'
+Plug 'ntpeters/vim-better-whitespace'
+Plug 'djoshea/vim-autoread'
+Plug 'wakatime/vim-wakatime'
 if has('nvim')
   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 else
@@ -132,6 +137,7 @@ call plug#end()
 " Enable autocomplete via deoplete
 let g:deoplete#enable_at_startup = 1
 
+
 """"""""""""
 "  Airline
 """"""""""""
@@ -144,7 +150,14 @@ let g:airline#extensions#tabline#fnamemod = ':t'
 """""""""""""""
 let g:jsx_ext_required = 0  " Highlight .js as well as .jsx files
 
+" Colorscheme
+
 colorscheme dracula
+
+" Trim white space on save
+let g:better_whitespace_enabled=1
+let g:strip_whitespace_on_save=1
+
 
 " NERDTress File highlighting
 function! NERDTreeHighlightFile(extension, fg, bg, guifg, guibg)
