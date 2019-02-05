@@ -1,13 +1,18 @@
-set default_user "anton"
-set default_machine "anton-personal-mbp"
-
-
 source ~/.config/fish/path.fish
 source ~/.config/fish/aliases.fish
 source ~/.config/fish/chpwd.fish
 source ~/.config/fish/functions.fish
-source ~/.config/fish/chromium.fish
 source ~/.config/fish/conf.d/scmpuff.fish
+
+# chruby
+source /usr/local/share/chruby/chruby.fish
+source /usr/local/share/chruby/auto.fish
+
+# nodenv
+status --is-interactive; and source (nodenv init -|psub)
+
+# direnv
+eval (direnv hook fish)
 
 # for things not checked into git..
 if test -e "$HOME/.extra.fish";
@@ -77,12 +82,10 @@ set __fish_git_prompt_color_upstream_behind blue
 # Local prompt customization
 set -e fish_greeting
 
-
 set -g fish_pager_color_completion normal
 set -g fish_pager_color_description 555 yellow
 set -g fish_pager_color_prefix cyan
 set -g fish_pager_color_progress cyan
-
 
 # highlighting inside manpages and elsewhere
 set -gx LESS_TERMCAP_mb \e'[01;31m'       # begin blinking
@@ -93,6 +96,9 @@ set -gx LESS_TERMCAP_so \e'[38;5;246m'    # begin standout-mode - info box
 set -gx LESS_TERMCAP_ue \e'[0m'           # end underline
 set -gx LESS_TERMCAP_us \e'[04;38;5;146m' # begin underline
 
+# basic defaults
+set -x EDITOR vim
+set -x TERM xterm-256color
 
 # this currently messes with newlines in my prompt. lets debug it later.
 # test -e {$HOME}/.iterm2_shell_integration.fish ; and source {$HOME}/.iterm2_shell_integration.fish

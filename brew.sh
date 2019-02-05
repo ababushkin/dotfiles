@@ -64,6 +64,14 @@ brew install terminal-notifier
 brew install ncdu # find where your diskspace went
 
 brew install fish
+brew install direnv
+brew install thefuck
+brew install diff-so-fancy
+
+brew install chruby
+brew install chruby-fish
+brew install nodenv
+brew install node-build
 
 # Remove outdated versions from the cellar
 brew cleanup

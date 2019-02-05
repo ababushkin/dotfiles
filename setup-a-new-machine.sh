@@ -75,7 +75,7 @@ cp -Rp ~/Library/Application\ Support/Code\ -\ Insider* ~/migration/Library/"App
 #   sublimetext's is in its Application Support folder
 
 # maybe ~/Pictures and such
-cp -Rp ~/Pictures ~/migration
+# cp -Rp ~/Pictures ~/migration
 
 ### end of old machine backup
 ##############################################################################################################

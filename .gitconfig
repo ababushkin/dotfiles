@@ -22,6 +22,7 @@
 [core]
 	excludesfile = ~/.gitignore
 	attributesfile = ~/.gitattributes
+	pager = diff-so-fancy | less --tabs=4 -RFX
 
 [pager]
 	# insanely beautiful diffs ==> npm install -g diff-so-fancy
@@ -34,10 +35,10 @@
 
 # so much color
 [color]
-	ui = auto
+	ui = true
 [color "diff"]
-	meta = yellow bold
-	commit = green bold
+	meta = yellow
+	commit = yellow bold
 	frag = magenta bold
 	old = red bold
 	new = green bold
@@ -46,9 +47,9 @@
     oldMoved = blue
 [color "diff-highlight"]
 	oldNormal = red bold
-	oldHighlight = "red bold 52"
-	newNormal = "green bold"
-	newHighlight = "green bold 22"
+	oldHighlight = red bold 52
+	newNormal = green bold
+	newHighlight = green bold 22
 [color "branch"]
 	current = yellow reverse
 	local = yellow

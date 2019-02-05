@@ -50,8 +50,9 @@ alias cleanup_dsstore="find . -name '*.DS_Store' -type f -ls -delete"
 # Shortcuts
 alias g="git"
 alias gi="git"
-alias v="vim"
+alias v="nvim"
 alias ungz="gunzip -k"
+alias vim="nvim"
 
 # File size
 alias fs="stat -f \"%z bytes\""
@@ -61,3 +62,6 @@ alias fs="stat -f \"%z bytes\""
 # Update installed Ruby gems, Homebrew, npm, and their installed packages
 alias brew_update="brew -v update; brew upgrade --force-bottle --cleanup; brew cleanup; brew cask cleanup; brew prune; brew doctor; npm-check -g -u"
 alias update_brew_npm_gem='brew_update; npm install npm -g; npm update -g; sudo gem update --system; sudo gem update --no-document'
+
+# enable thefuck
+thefuck --alias | source 
