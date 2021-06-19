@@ -20,9 +20,6 @@ set complete+=kspell
 :cab f FZF
 :cab t Tags
 
-" Show hidden files in FZF
-let $FZF_DEFAULT_COMMAND = 'rg --hidden --path-to-ignore ~/.ignore -l -g ""'
-
 " Fugitive short cuts
 :cab gb Gblame
 
