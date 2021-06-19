@@ -4,8 +4,22 @@ brew update
 brew upgrade
 
 brew install git
-brew install fish
 brew install rg
+
+# Install node
+brew install node
+brew install nvm
+
+# Install neovim, vim plug and deoplete dependencies
+brew install nvim
+curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+pip3 install --user pynvim
+
+# Install fish and fisher
+brew install fish
+curl -sL https://git.io/fisher | source && fisher install jorgebucaran/fisher
+fisher install jorgebucaran/nvm.fish
 
 # Install and configure fzf
 brew install fzf
@@ -17,6 +31,7 @@ git clone https://github.com/gpakosz/.tmux.git ~/oh-my-tmux
 ln -s -f ~/oh-my-tmux/.tmux.conf ~/.tmux.conf
 cp ~/oh-my-tmux/.tmux.conf.local ~/.tmux.conf.local
 
+# Install alacritty
 brew install --cask alacritty
 mkdir -p ~/.config/alacritty
 cp .alacritty.yml ~/.config/alacritty/ 
