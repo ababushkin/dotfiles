@@ -19,7 +19,10 @@ pip3 install --user pynvim
 # Install fish and fisher
 brew install fish
 curl -sL https://git.io/fisher | source && fisher install jorgebucaran/fisher
+
+# Fish plugins
 fisher install jorgebucaran/nvm.fish
+fisher install jethrokuan/z
 
 # Install and configure fzf
 brew install fzf
@@ -35,3 +38,10 @@ cp ~/oh-my-tmux/.tmux.conf.local ~/.tmux.conf.local
 brew install --cask alacritty
 mkdir -p ~/.config/alacritty
 cp .alacritty.yml ~/.config/alacritty/ 
+
+# Install visual studio code
+brew install --cask visual-studio-code
+defaults write com.microsoft.VSCode ApplePressAndHoldEnabled -bool false # Make repeat keystrokes work in VIM mode
+
+# Java
+brew install --cask adoptopenjdk
