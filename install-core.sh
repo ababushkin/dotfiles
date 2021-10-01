@@ -50,5 +50,7 @@ brew install font-fira-code
 # Java
 brew install --cask adoptopenjdk
 
-# Shiftit
+# Useful apps
 brew install --cask shiftit
+brew install --cask google-chrome
+
