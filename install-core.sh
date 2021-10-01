@@ -45,3 +45,6 @@ defaults write com.microsoft.VSCode ApplePressAndHoldEnabled -bool false # Make 
 
 # Java
 brew install --cask adoptopenjdk
+
+# Shiftit
+brew install --cask shiftit
