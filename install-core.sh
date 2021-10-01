@@ -43,6 +43,10 @@ cp .alacritty.yml ~/.config/alacritty/
 brew install --cask visual-studio-code
 defaults write com.microsoft.VSCode ApplePressAndHoldEnabled -bool false # Make repeat keystrokes work in VIM mode
 
+# Fonts
+brew tap homebrew/cask-fonts
+brew install font-fira-code
+
 # Java
 brew install --cask adoptopenjdk
 
