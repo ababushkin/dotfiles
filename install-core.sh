@@ -5,6 +5,7 @@ brew upgrade
 
 brew install git
 brew install rg
+brew install fd # we'll use FD for FZF to support .gitignore easily
 
 # Install node
 brew install node

@@ -65,23 +65,6 @@ set list listchars=tab:»·,trail:·,nbsp:·
 " Use one space, not two, after punctuation.
 set nojoinspaces
 
-" Use The Silver Searcher https://github.com/ggreer/the_silver_searcher
-if executable('ag')
-  " Use Ag over Grep
-  set grepprg=ag\ --nogroup\ --nocolor
-
-  " Use ag in CtrlP for listing files. Lightning fast and respects .gitignore
-  let g:ctrlp_user_command = 'ag --literal --files-with-matches --nocolor --hidden -g "" %s'
-
-  " ag is fast enough that CtrlP doesn't need to cache
-  let g:ctrlp_use_caching = 0
-
-  if !exists(":Ag")
-    command -nargs=+ -complete=file -bar Ag silent! grep! <args>|cwindow|redraw!
-    nnoremap \ :Ag<SPACE>
-  endif
-endif
-
 " Make it obvious where 100 characters is
 set textwidth=100
 set colorcolumn=+1
@@ -114,14 +97,23 @@ set diffopt+=vertical
 
 call plug#begin('~/.vim/plugged')
 
+Plug 'morhetz/gruvbox', { 'as': 'gruvbox' }
+
 Plug 'pangloss/vim-javascript'
+Plug 'leafgarland/typescript-vim'
+Plug 'peitalin/vim-jsx-typescript'
+Plug 'https://github.com/mxw/vim-jsx.git'
+Plug 'jparise/vim-graphql'
+
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
+
 Plug 'jlanzarotta/bufexplorer'
-Plug 'morhetz/gruvbox', { 'as': 'gruvbox' }
 Plug 'scrooloose/nerdtree'
 Plug 'tpope/vim-commentary'
 Plug 'djoshea/vim-autoread'
+Plug 'https://github.com/tpope/vim-fugitive.git'
+
 if has('nvim')
   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 else
@@ -130,10 +122,6 @@ else
   Plug 'roxma/vim-hug-neovim-rpc'
 endif
 Plug 'tbodt/deoplete-tabnine', { 'do': './install.sh' }
-
-Plug 'https://github.com/mxw/vim-jsx.git'
-Plug 'https://github.com/tpope/vim-fugitive.git'
-Plug 'jparise/vim-graphql'
 
 call plug#end()
 
