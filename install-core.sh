@@ -38,7 +38,7 @@ cp ~/oh-my-tmux/.tmux.conf.local ~/.tmux.conf.local
 # Install alacritty
 brew install --cask alacritty
 mkdir -p ~/.config/alacritty
-cp .alacritty.yml ~/.config/alacritty/ 
+cp alacritty.yml ~/.config/alacritty/ 
 
 # Install visual studio code
 brew install --cask visual-studio-code
