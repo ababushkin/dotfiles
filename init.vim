@@ -50,11 +50,13 @@ tnoremap <C-k> <C-\><C-n><C-w>k
 tnoremap <C-h> <C-\><C-n><C-w>h
 tnoremap <C-l> <C-\><C-n><C-w>l
 
-" RSpec.vim mappings
-map <Leader>t :call RunCurrentSpecFile()<CR>
-map <Leader>s :call RunNearestSpec()<CR>
-map <Leader>l :call RunLastSpec()<CR>
-map <Leader>a :call RunAllSpecs()<CR>
+" pbcopy clipboard sharing with MacOS
+vnoremap \y y:call system("pbcopy", getreg("\""))<CR>
+nnoremap \p :call setreg("\"", system("pbpaste"))<CR>p
+
+noremap YY "+y<CR>
+noremap P "+gP<CR>
+noremap XX "+x<CR>
 
 " Open NERDTree on CTRL + N
 map <C-n> :NERDTreeToggle<CR>
@@ -121,7 +123,9 @@ else
   Plug 'roxma/nvim-yarp'
   Plug 'roxma/vim-hug-neovim-rpc'
 endif
+Plug 'wakatime/vim-wakatime'
 Plug 'tbodt/deoplete-tabnine', { 'do': './install.sh' }
+Plug 'prettier/vim-prettier'
 
 call plug#end()
 
