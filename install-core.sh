@@ -24,6 +24,7 @@ curl -sL https://git.io/fisher | source && fisher install jorgebucaran/fisher
 # Fish plugins
 fisher install jorgebucaran/nvm.fish
 fisher install jethrokuan/z
+fisher install oh-my-theme/theme-clearance
 
 # Install and configure fzf
 brew install fzf
@@ -38,7 +39,7 @@ cp ~/oh-my-tmux/.tmux.conf.local ~/.tmux.conf.local
 # Install alacritty
 brew install --cask alacritty
 mkdir -p ~/.config/alacritty
-cp alacritty.yml ~/.config/alacritty/ 
+cp alacritty.yml ~/.config/alacritty/
 
 # Install visual studio code
 brew install --cask visual-studio-code
