@@ -1,7 +1,3 @@
-### Install Command Line Tools for MacOS
-
-- https://developer.apple.com/download/all/?q=command
-
 ### Install homebrew
 
 https://brew.sh
@@ -9,6 +5,8 @@ https://brew.sh
 ```bash
 $ /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 ```
+
+Note: This will also install XCode Command Line Tools
 
 ### Install everything else
 
