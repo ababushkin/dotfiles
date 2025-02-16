@@ -59,4 +59,5 @@ brew install openjdk
 
 # Useful apps
 brew install --cask google-chrome
+brew install --cask 1password
 
