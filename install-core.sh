@@ -7,11 +7,20 @@ brew install git
 brew install rg
 brew install fd # we'll use FD for FZF to support .gitignore easily
 
-# Install node
+# Install and setup environment for Python development
+## Install PIPX and Poetry https://github.com/pypa/pipx
+brew install pipx
+pipx ensurepath
+sudo pipx ensurepath --global # optional to allow pipx actions with --global argument
+# https://python-poetry.org/docs/#installing-with-pipx
+pipx install poetry
+poetry completions fish > ~/.config/fish/completions/poetry.fish
+
+
+# Install node and setup environment for JS development
 brew install node
 brew install nvm
-
-# Install neovim, vim plug and deoplete dependencies
+## Install neovim, vim plug and deoplete dependencies
 brew install nvim
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
