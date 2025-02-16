@@ -55,7 +55,7 @@ brew tap homebrew/cask-fonts
 brew install font-fira-code
 
 # Java
-brew install --cask openjdk
+brew install openjdk
 
 # Useful apps
 brew install --cask google-chrome
