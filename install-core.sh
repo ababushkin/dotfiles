@@ -24,7 +24,12 @@ curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fi
 # Fish plugins
 fisher install jorgebucaran/nvm.fish
 fisher install jethrokuan/z
-fisher install oh-my-theme/theme-clearance
+
+# Install Oh-My-Fish (omf)
+curl https://raw.githubusercontent.com/oh-my-fish/oh-my-fish/master/bin/install | fish
+
+# Install fisher theme
+omf install oh-my-theme/theme-clearance
 
 # Install and configure fzf
 brew install fzf
@@ -50,9 +55,8 @@ brew tap homebrew/cask-fonts
 brew install font-fira-code
 
 # Java
-brew install --cask adoptopenjdk
+brew install --cask openjdk
 
 # Useful apps
-brew install --cask shiftit
 brew install --cask google-chrome
 
