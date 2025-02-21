@@ -66,7 +66,9 @@ brew install font-fira-code
 # Java
 brew install openjdk
 
+# Docker
+brew install --cask docker
+
 # Useful apps
 brew install --cask google-chrome
 brew install --cask 1password
-
