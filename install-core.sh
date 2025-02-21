@@ -38,7 +38,7 @@ fisher install jethrokuan/z
 curl https://raw.githubusercontent.com/oh-my-fish/oh-my-fish/master/bin/install | fish
 
 # Install fisher theme
-omf install oh-my-theme/theme-clearance
+omf install clearance
 
 # Install and configure fzf
 brew install fzf
