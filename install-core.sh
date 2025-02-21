@@ -62,8 +62,7 @@ brew install --cask visual-studio-code
 defaults write com.microsoft.VSCode ApplePressAndHoldEnabled -bool false # Make repeat keystrokes work in VIM mode
 
 # Fonts
-brew tap homebrew/cask-fonts
-brew install font-fira-code
+brew install --cask font-fira-code
 
 # Java
 brew install openjdk
