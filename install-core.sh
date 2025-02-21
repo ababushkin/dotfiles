@@ -39,6 +39,8 @@ curl https://raw.githubusercontent.com/oh-my-fish/oh-my-fish/master/bin/install 
 
 # Install fisher theme
 omf install clearance
+omf reload
+omf theme clearance
 
 # Install and configure fzf
 brew install fzf
