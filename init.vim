@@ -101,12 +101,6 @@ call plug#begin('~/.vim/plugged')
 
 Plug 'morhetz/gruvbox', { 'as': 'gruvbox' }
 
-Plug 'pangloss/vim-javascript'
-Plug 'leafgarland/typescript-vim'
-Plug 'peitalin/vim-jsx-typescript'
-Plug 'https://github.com/mxw/vim-jsx.git'
-Plug 'jparise/vim-graphql'
-
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 
@@ -132,7 +126,6 @@ call plug#end()
 " Enable autocomplete via deoplete
 let g:deoplete#enable_at_startup = 1
 
-
 """"""""""""
 "  Airline
 """"""""""""
@@ -140,11 +133,6 @@ let g:deoplete#enable_at_startup = 1
 " let g:airline#extensions#tabline#enabled = 1
 " let g:airline#extensions#tabline#fnamemod = ':t'
 " let g:airline_theme = 'gruvbox'
-
-"""""""""""""""
-" JSX syntax highlighting
-"""""""""""""""
-let g:jsx_ext_required = 0  " Highlight .js as well as .jsx files
 
 set background=dark
 let g:gruvbox_contrast_dark = 'hard'
