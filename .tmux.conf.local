@@ -409,11 +409,15 @@ bind m run "cut -c3- '#{TMUX_CONF}' | sh -s _toggle_mouse" \; display 'mouse #{?
 
 # -- Claude Code session notifications -----------------------------------------
 
-# Clear Claude ready indicator when switching to a session (you're now looking at it)
-set-hook -ga client-session-changed 'run-shell "bash ~/.claude/scripts/tmux-claude-clear.sh"'
-
-# Clean up stale indicator file when a session is closed
-set-hook -ga session-closed 'run-shell "bash ~/.claude/scripts/tmux-claude-clear.sh \"#{session_name}\""'
+# Clear Claude ready indicator when switching windows/panes (you're now looking at it)
+# Use -gu first to avoid duplicates on config reload
+set-hook -gu after-select-window
+set-hook -gu after-select-pane
+set-hook -gu client-session-changed
+set-hook -gu session-closed
+set-hook -ga after-select-window 'run-shell "bash ~/.claude/scripts/tmux-claude-clear.sh #{pane_id}"'
+set-hook -ga after-select-pane 'run-shell "bash ~/.claude/scripts/tmux-claude-clear.sh #{pane_id}"'
+set-hook -ga client-session-changed 'run-shell "bash ~/.claude/scripts/tmux-claude-clear.sh #{pane_id}"'
 
 # move status line to top
 #set -g status-position top
@@ -513,21 +517,20 @@ tmux_conf_uninstall_plugins_on_reload=true
 # }
 #
 # # usage: #{claude_sessions}
-# # Shows a 🤖 indicator with session names where Claude has finished and is waiting for input.
-# # The indicator clears automatically when you switch to that session.
+# # Shows a 🤖 indicator when Claude has finished and is waiting for input.
+# # The indicator clears automatically when you switch to that window/pane.
 # claude_sessions() {
-#   waiting=""
-#   for f in /tmp/.claude_ready_*; do
+#   count=0
+#   for f in /tmp/.claude_ready_pane_*; do
 #     [ -f "$f" ] || continue
-#     session="${f#/tmp/.claude_ready_}"
-#     session="${session//_/ }"
-#     if tmux has-session -t "$session" 2>/dev/null; then
-#       waiting="${waiting:+$waiting,}$session"
+#     pane_id="%${f#/tmp/.claude_ready_pane_}"
+#     if tmux display-message -t "$pane_id" -p '#{pane_id}' >/dev/null 2>&1; then
+#       count=$((count + 1))
 #     else
 #       rm -f "$f"
 #     fi
 #   done
-#   [ -n "$waiting" ] && printf '🤖 %s | ' "$waiting"
+#   [ "$count" -gt 0 ] && printf '🤖 %d | ' "$count"
 #   sleep 2
 # }
 #

@@ -1,9 +1,6 @@
 #!/bin/bash
-# Called by Claude Code Stop hook - marks this tmux session as having Claude ready
-if [ -n "$TMUX" ]; then
-    SESSION=$(tmux display-message -p '#S' 2>/dev/null)
-    if [ -n "$SESSION" ]; then
-        SAFE_NAME="${SESSION// /_}"
-        touch "/tmp/.claude_ready_${SAFE_NAME}"
-    fi
+# Called by Claude Code Stop hook - marks this tmux pane as having Claude ready
+if [ -n "$TMUX_PANE" ]; then
+    pane_id="${TMUX_PANE#%}"
+    touch "/tmp/.claude_ready_pane_${pane_id}"
 fi
