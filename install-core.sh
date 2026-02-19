@@ -50,7 +50,37 @@ $(brew --prefix)/opt/fzf/install
 brew install tmux
 git clone https://github.com/gpakosz/.tmux.git ~/oh-my-tmux
 ln -s -f ~/oh-my-tmux/.tmux.conf ~/.tmux.conf
-cp ~/oh-my-tmux/.tmux.conf.local ~/.tmux.conf.local
+cp .tmux.conf.local ~/.tmux.conf.local
+
+# Install Claude Code tmux notification scripts
+mkdir -p ~/.claude/scripts
+cp claude/scripts/tmux-claude-notify.sh ~/.claude/scripts/
+cp claude/scripts/tmux-claude-clear.sh ~/.claude/scripts/
+chmod +x ~/.claude/scripts/tmux-claude-notify.sh ~/.claude/scripts/tmux-claude-clear.sh
+
+# Add Claude Code Stop hook to ~/.claude/settings.json (creates file if missing)
+python3 - <<'PYEOF'
+import json, os
+
+path = os.path.expanduser("~/.claude/settings.json")
+settings = {}
+if os.path.exists(path):
+    with open(path) as f:
+        settings = json.load(f)
+
+hook = {"type": "command", "command": "bash ~/.claude/scripts/tmux-claude-notify.sh"}
+stop_hooks = settings.setdefault("hooks", {}).setdefault("Stop", [])
+
+# Only add if not already present
+if not any(h.get("hooks", []) == [hook] for h in stop_hooks):
+    stop_hooks.append({"hooks": [hook]})
+
+with open(path, "w") as f:
+    json.dump(settings, f, indent=2)
+    f.write("\n")
+
+print("Claude settings.json updated with tmux Stop hook")
+PYEOF
 
 # Install alacritty
 brew install --cask alacritty
