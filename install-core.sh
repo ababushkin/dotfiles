@@ -54,6 +54,23 @@ git clone https://github.com/gpakosz/.tmux.git ~/oh-my-tmux
 ln -s -f ~/oh-my-tmux/.tmux.conf ~/.tmux.conf
 cp .tmux.conf.local ~/.tmux.conf.local
 
+# Install alacritty
+brew install --cask alacritty
+mkdir -p ~/.config/alacritty
+cp alacritty.toml ~/.config/alacritty/
+
+# Fonts
+brew install --cask font-fira-code
+
+# Java
+brew install openjdk
+
+# Docker
+brew install --cask docker
+
+# 1password
+brew install --cask 1password
+
 # Install Claude Code tmux notification scripts
 mkdir -p ~/.claude/scripts
 cp claude/scripts/tmux-claude-notify.sh ~/.claude/scripts/
@@ -83,25 +100,3 @@ with open(path, "w") as f:
 
 print("Claude settings.json updated with tmux Stop hook")
 PYEOF
-
-# Install alacritty
-brew install --cask alacritty
-mkdir -p ~/.config/alacritty
-cp alacritty.toml ~/.config/alacritty/
-
-# Install visual studio code
-brew install --cask visual-studio-code
-defaults write com.microsoft.VSCode ApplePressAndHoldEnabled -bool false # Make repeat keystrokes work in VIM mode
-
-# Fonts
-brew install --cask font-fira-code
-
-# Java
-brew install openjdk
-
-# Docker
-brew install --cask docker
-
-# Useful apps
-brew install --cask google-chrome
-brew install --cask 1password
