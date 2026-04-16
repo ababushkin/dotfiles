@@ -26,7 +26,12 @@ curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
 pip3 install --user pynvim
 
 # Install/setup for ruby/rails development
-brew install mise
+curl https://mise.run | sh
+brew install libyaml # https://stackoverflow.com/questions/78817340/mise-cannot-install-ruby3-2-1-on-mac-m3
+mise settings add idiomatic_version_file_enable_tools ruby
+eval "$(mise activate bash)"
+eval "$(mise activate zsh)"
+mise activate fish | source
 
 # Install fish and fisher
 brew install fish
@@ -70,6 +75,9 @@ brew install --cask docker
 
 # 1password
 brew install --cask 1password
+
+# VLC
+brew install --cask vlc
 
 # Install Claude Code tmux notification scripts
 mkdir -p ~/.claude/scripts
