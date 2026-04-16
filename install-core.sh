@@ -16,7 +16,6 @@ sudo pipx ensurepath --global # optional to allow pipx actions with --global arg
 pipx install poetry
 poetry completions fish > ~/.config/fish/completions/poetry.fish
 
-
 # Install node and setup environment for JS development
 brew install node
 brew install nvm
@@ -25,6 +24,9 @@ brew install nvim
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 pip3 install --user pynvim
+
+# Install/setup for ruby/rails development
+brew install mise
 
 # Install fish and fisher
 brew install fish
