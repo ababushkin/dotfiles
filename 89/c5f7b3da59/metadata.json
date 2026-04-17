@@ -1,0 +1,27 @@
+{
+  "cli_version": "0.5.5",
+  "checkpoint_id": "89c5f7b3da59",
+  "strategy": "manual-commit",
+  "branch": "master",
+  "checkpoints_count": 2,
+  "files_touched": [
+    "Brewfile",
+    "lua/plugins/fzf.lua",
+    "lua/plugins/telescope.lua"
+  ],
+  "sessions": [
+    {
+      "metadata": "/89/c5f7b3da59/0/metadata.json",
+      "transcript": "/89/c5f7b3da59/0/full.jsonl",
+      "content_hash": "/89/c5f7b3da59/0/content_hash.txt",
+      "prompt": "/89/c5f7b3da59/0/prompt.txt"
+    }
+  ],
+  "token_usage": {
+    "input_tokens": 25,
+    "cache_creation_tokens": 27090,
+    "cache_read_tokens": 352750,
+    "output_tokens": 3074,
+    "api_call_count": 10
+  }
+}

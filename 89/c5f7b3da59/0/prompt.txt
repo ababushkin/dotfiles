@@ -1,0 +1,9 @@
+lets add iterm2 to my installation and ensure it has the right/optimized configuration for my tmux setup
+
+---
+
+which is the best
+
+---
+
+how would i re-export to the repo
