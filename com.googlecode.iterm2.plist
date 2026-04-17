@@ -397,7 +397,7 @@
 				<real>0.19802422821521759</real>
 			</dict>
 			<key>Load Shell Integration Automatically</key>
-			<true/>
+			<false/>
 			<key>Match Background Color</key>
 			<dict>
 				<key>Alpha Component</key>
@@ -412,7 +412,7 @@
 				<real>0.99697142839431763</real>
 			</dict>
 			<key>Mouse Reporting</key>
-			<true/>
+			<false/>
 			<key>Name</key>
 			<string>Default</string>
 			<key>Non-ASCII Anti Aliased</key>
