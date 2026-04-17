@@ -30,8 +30,10 @@ rm -f ~/.config/nvim/init.vim
 
 # mise settings (mise itself is installed via Brewfile)
 mise settings add idiomatic_version_file_enable_tools ruby || true
-# mise activation is configured in config.fish / .zshrc — open a new shell,
-# then install toolchains as needed, e.g.: mise use -g node@lts ruby@3.3
+
+# Global toolchains (pinned to major; bump deliberately)
+mise use -g node@22
+mise use -g ruby@3.3
 
 # Fisher + fish plugins (plugin set is managed via fish_plugins in this repo)
 if ! fish -c 'functions -q fisher' >/dev/null 2>&1; then
