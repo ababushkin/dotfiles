@@ -1,0 +1,35 @@
+{
+  "env": {
+    "CLAUDE_CODE_EXPERIMENTAL_AGENT_TEAMS": "1"
+  },
+  "permissions": {
+    "allow": [
+      "Bash(ruby *)",
+      "Bash(python3 *)",
+      "Bash(gem *)",
+      "Bash(mise *)",
+      "Bash(brew *)",
+      "Bash(bin/rails *)",
+      "Bash(bundle *)",
+      "Bash(git *)",
+      "Bash(claude *)",
+      "Bash(open *)",
+      "Bash(grep *)",
+      "Bash(xargs *)",
+      "Bash(ls *)",
+      "Bash(wc *)",
+      "Bash(launchctl *)",
+      "Bash(curl *)",
+      "Bash(sqlite3 *)",
+      "Bash(crontab *)",
+      "Bash(echo *)",
+      "Bash(bash *)",
+      "Bash(RAILS_ENV=production bin/rails *)",
+      "Bash(RAILS_ENV=development bin/rails *)",
+      "Bash(rtk *)",
+      "WebFetch(*)",
+      "WebSearch",
+      "Skill(schedule)"
+    ]
+  }
+}

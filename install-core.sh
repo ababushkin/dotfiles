@@ -54,38 +54,18 @@ if [ ! -e /Library/Java/JavaVirtualMachines/openjdk.jdk ]; then
     /Library/Java/JavaVirtualMachines/openjdk.jdk
 fi
 
-# Claude Code
+# Claude Code CLI
 if ! command -v claude >/dev/null 2>&1; then
   curl -fsSL https://claude.ai/install.sh | bash
 fi
+
+# rtk (LLM output filter) — registers its own PreToolUse hook in ~/.claude/settings.json
+rtk init -g || true
+
+# Caveman plugin
 claude plugin marketplace add JuliusBrussee/caveman || true
 claude plugin install caveman@caveman || true
 
-# Claude Code tmux notification scripts
-mkdir -p ~/.claude/scripts
-cp claude/scripts/tmux-claude-notify.sh ~/.claude/scripts/
-cp claude/scripts/tmux-claude-clear.sh ~/.claude/scripts/
-chmod +x ~/.claude/scripts/tmux-claude-notify.sh ~/.claude/scripts/tmux-claude-clear.sh
-
-# Register the Stop hook in ~/.claude/settings.json (idempotent)
-python3 - <<'PYEOF'
-import json, os
-
-path = os.path.expanduser("~/.claude/settings.json")
-settings = {}
-if os.path.exists(path):
-    with open(path) as f:
-        settings = json.load(f)
-
-hook = {"type": "command", "command": "bash ~/.claude/scripts/tmux-claude-notify.sh"}
-stop_hooks = settings.setdefault("hooks", {}).setdefault("Stop", [])
-
-if not any(h.get("hooks", []) == [hook] for h in stop_hooks):
-    stop_hooks.append({"hooks": [hook]})
-
-with open(path, "w") as f:
-    json.dump(settings, f, indent=2)
-    f.write("\n")
-
-print("Claude settings.json updated with tmux Stop hook")
-PYEOF
+# Global Claude Code user settings (permissions + env) — only install if missing
+mkdir -p ~/.claude
+[ -f ~/.claude/settings.local.json ] || cp claude/settings.local.json ~/.claude/settings.local.json

@@ -407,18 +407,6 @@ tmux_conf_urlscan_options="--compact --dedupe"
 # display a message after toggling mouse support
 bind m run "cut -c3- '#{TMUX_CONF}' | sh -s _toggle_mouse" \; display 'mouse #{?#{mouse},on,off}'
 
-# -- Claude Code session notifications -----------------------------------------
-
-# Clear Claude ready indicator when switching windows/panes (you're now looking at it)
-# Use -gu first to avoid duplicates on config reload
-set-hook -gu after-select-window
-set-hook -gu after-select-pane
-set-hook -gu client-session-changed
-set-hook -gu session-closed
-set-hook -ga after-select-window 'run-shell "bash ~/.claude/scripts/tmux-claude-clear.sh #{pane_id}"'
-set-hook -ga after-select-pane 'run-shell "bash ~/.claude/scripts/tmux-claude-clear.sh #{pane_id}"'
-set-hook -ga client-session-changed 'run-shell "bash ~/.claude/scripts/tmux-claude-clear.sh #{pane_id}"'
-
 # move status line to top
 #set -g status-position top
 
