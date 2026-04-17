@@ -12,7 +12,7 @@ brew bundle --file=Brewfile
 
 # Python tooling
 pipx ensurepath
-pipx install poetry
+pipx list --short 2>/dev/null | grep -q '^poetry ' || pipx install poetry
 mkdir -p ~/.config/fish/completions
 poetry completions fish > ~/.config/fish/completions/poetry.fish
 
