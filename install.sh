@@ -21,7 +21,7 @@ trap 'kill "$SUDO_KEEPALIVE" 2>/dev/null || true' EXIT
 # -- verify --------------------------------------------------------------------
 echo
 echo "-- verification --"
-for bin in brew mise fish fzf nvim tmux gh rtk claude; do
+for bin in brew mise fzf nvim tmux gh rtk claude zoxide; do
   if command -v "$bin" >/dev/null 2>&1; then
     printf "  %-8s %s\n" "$bin" "$("$bin" --version 2>&1 | head -n1)"
   else

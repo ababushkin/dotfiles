@@ -15,12 +15,10 @@ brew bundle --file=Brewfile
 # Python tooling
 pipx ensurepath
 pipx list --short 2>/dev/null | grep -q '^poetry ' || pipx install poetry
-mkdir -p ~/.config/fish/completions
-poetry completions fish > ~/.config/fish/completions/poetry.fish
+mkdir -p ~/.zfunc
+poetry completions zsh > ~/.zfunc/_poetry
 
-# Shell configs
-mkdir -p ~/.config/fish
-cp config.fish ~/.config/fish/config.fish
+# Shell config
 cp .zshrc ~/.zshrc
 
 # Neovim config (lazy.nvim auto-installs on first launch)
@@ -37,14 +35,7 @@ mise settings add idiomatic_version_file_enable_tools ruby || true
 mise use -g node@22
 mise use -g ruby@3.3
 
-# Fisher + fish plugins (plugin set is managed via fish_plugins in this repo)
-if ! fish -c 'functions -q fisher' >/dev/null 2>&1; then
-  fish -c 'curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish | source; and fisher install jorgebucaran/fisher'
-fi
-cp fish_plugins ~/.config/fish/fish_plugins
-fish -c 'fisher update'
-
-# fzf keybindings & shell integration (FZF_DEFAULT_COMMAND is set in config.fish / .zshrc)
+# fzf keybindings & shell integration (FZF_DEFAULT_COMMAND is set in .zshrc)
 "$(brew --prefix)"/opt/fzf/install --all
 
 # tmux + oh-my-tmux

@@ -15,7 +15,7 @@ stages directly when you only want to change one thing:
 
 | Stage               | What it does                                                  |
 | ------------------- | ------------------------------------------------------------- |
-| `install-core.sh`   | Brewfile, shell configs, nvim, mise (node/ruby), tmux, iTerm2, Claude |
+| `install-core.sh`   | Brewfile, zsh config + plugins, nvim, mise (node/ruby), tmux, iTerm2, Claude |
 | `install-macos.sh`  | Keyboard repeat defaults, Caps Lock → Ctrl (hidutil agent)    |
 | `install-git.sh`    | git identity (prompts), url rewrite, `gh auth setup-git`      |
 

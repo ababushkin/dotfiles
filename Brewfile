@@ -7,9 +7,14 @@ brew "gh"
 brew "ripgrep"            # required by telescope live_grep/grep_string
 brew "fd"                 # preferred finder for telescope find_files
 brew "tmux"
-brew "fish"
 brew "starship"
 brew "mise"               # Ruby/Node/Python runtime manager
+brew "zoxide"             # smarter cd (z <dir>); init in .zshrc
+
+# zsh quality-of-life (sourced from .zshrc)
+brew "zsh-autosuggestions"
+brew "zsh-fast-syntax-highlighting"
+brew "zsh-history-substring-search"
 
 # Editor
 brew "neovim"
