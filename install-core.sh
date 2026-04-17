@@ -46,7 +46,7 @@ fish -c 'fisher update'
 # tmux + oh-my-tmux
 [ -d ~/oh-my-tmux ] || git clone https://github.com/gpakosz/.tmux.git ~/oh-my-tmux
 ln -sf ~/oh-my-tmux/.tmux.conf ~/.tmux.conf
-[ -f ~/.tmux.conf.local ] || cp .tmux.conf.local ~/.tmux.conf.local
+cp .tmux.conf.local ~/.tmux.conf.local
 
 # Java: link openjdk into the system JVM path
 if [ ! -e /Library/Java/JavaVirtualMachines/openjdk.jdk ]; then
