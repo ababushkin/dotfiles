@@ -19,11 +19,16 @@ poetry completions fish > ~/.config/fish/completions/poetry.fish
 # Install node and setup environment for JS development
 brew install node
 brew install nvm
-## Install neovim, vim plug and deoplete dependencies
+## Install neovim
 brew install nvim
-curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
-    https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 pip3 install --user pynvim
+
+# Install nvim config (lazy.nvim auto-installs on first launch)
+mkdir -p ~/.config/nvim
+cp init.lua ~/.config/nvim/
+cp -R lua ~/.config/nvim/
+# Remove any leftover init.vim so nvim loads init.lua
+rm -f ~/.config/nvim/init.vim
 
 # Install/setup for ruby/rails development
 curl https://mise.run | sh
@@ -59,13 +64,8 @@ git clone https://github.com/gpakosz/.tmux.git ~/oh-my-tmux
 ln -s -f ~/oh-my-tmux/.tmux.conf ~/.tmux.conf
 cp .tmux.conf.local ~/.tmux.conf.local
 
-# Install alacritty
-brew install --cask alacritty
-mkdir -p ~/.config/alacritty
-cp alacritty.toml ~/.config/alacritty/
-
-# Fonts
-brew install --cask font-fira-code
+# Fonts (Nerd Font variant for nvim-web-devicons / lualine glyphs)
+brew install --cask font-fira-code-nerd-font
 
 # Java
 brew install openjdk
@@ -78,6 +78,11 @@ brew install --cask 1password
 
 # VLC
 brew install --cask vlc
+
+# Claude Code quality of life
+brew install rtk
+claude plugin marketplace add JuliusBrussee/caveman
+claude plugin install caveman@caveman
 
 # Install Claude Code tmux notification scripts
 mkdir -p ~/.claude/scripts

@@ -2,7 +2,9 @@
   "permissions": {
     "allow": [
       "Bash(claude mcp call:*)",
-      "Bash(claude:*)"
+      "Bash(claude:*)",
+      "Read(//Users/anton/.config/nvim/**)",
+      "Read(//Users/anton/**)"
     ]
   }
 }
