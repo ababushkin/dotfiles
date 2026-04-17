@@ -1,96 +1,73 @@
 #!/bin/bash
+set -euo pipefail
 
+cd "$(dirname "$0")"
+
+# pipx and mise install into ~/.local/bin; make sure it's on PATH for this script
+export PATH="$HOME/.local/bin:$PATH"
+
+# Homebrew packages (see Brewfile)
 brew update
-brew upgrade
+brew bundle --file=Brewfile
 
-brew install git
-brew install rg
-brew install fd # we'll use FD for FZF to support .gitignore easily
-
-# Install and setup environment for Python development
-## Install PIPX and Poetry https://github.com/pypa/pipx
-brew install pipx
+# Python tooling
 pipx ensurepath
-sudo pipx ensurepath --global # optional to allow pipx actions with --global argument
-# https://python-poetry.org/docs/#installing-with-pipx
 pipx install poetry
+mkdir -p ~/.config/fish/completions
 poetry completions fish > ~/.config/fish/completions/poetry.fish
 
-# Install node and setup environment for JS development
-brew install node
-brew install nvm
-## Install neovim
-brew install nvim
-pip3 install --user pynvim
+# Shell configs
+mkdir -p ~/.config/fish
+cp config.fish ~/.config/fish/config.fish
+cp .zshrc ~/.zshrc
 
-# Install nvim config (lazy.nvim auto-installs on first launch)
+# Neovim config (lazy.nvim auto-installs on first launch)
 mkdir -p ~/.config/nvim
 cp init.lua ~/.config/nvim/
+rm -rf ~/.config/nvim/lua
 cp -R lua ~/.config/nvim/
-# Remove any leftover init.vim so nvim loads init.lua
 rm -f ~/.config/nvim/init.vim
 
-# Install/setup for ruby/rails development
-curl https://mise.run | sh
-brew install libyaml # https://stackoverflow.com/questions/78817340/mise-cannot-install-ruby3-2-1-on-mac-m3
-mise settings add idiomatic_version_file_enable_tools ruby
-eval "$(mise activate bash)"
-eval "$(mise activate zsh)"
-mise activate fish | source
+# mise settings (mise itself is installed via Brewfile)
+mise settings add idiomatic_version_file_enable_tools ruby || true
+# mise activation is configured in config.fish / .zshrc — open a new shell,
+# then install toolchains as needed, e.g.: mise use -g node@lts ruby@3.3
 
-# Install fish and fisher
-brew install fish
-curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish | source && fisher install jorgebucaran/fisher
+# Fisher + fish plugins (plugin set is managed via fish_plugins in this repo)
+if ! fish -c 'functions -q fisher' >/dev/null 2>&1; then
+  fish -c 'curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish | source; and fisher install jorgebucaran/fisher'
+fi
+cp fish_plugins ~/.config/fish/fish_plugins
+fish -c 'fisher update'
 
-# Fish plugins
-fisher install jorgebucaran/nvm.fish
-fisher install jethrokuan/z
+# fzf keybindings & shell integration (FZF_DEFAULT_COMMAND is set in config.fish / .zshrc)
+"$(brew --prefix)"/opt/fzf/install --all
 
-# Install Oh-My-Fish (omf)
-curl https://raw.githubusercontent.com/oh-my-fish/oh-my-fish/master/bin/install | fish
+# tmux + oh-my-tmux
+[ -d ~/oh-my-tmux ] || git clone https://github.com/gpakosz/.tmux.git ~/oh-my-tmux
+ln -sf ~/oh-my-tmux/.tmux.conf ~/.tmux.conf
+[ -f ~/.tmux.conf.local ] || cp .tmux.conf.local ~/.tmux.conf.local
 
-# Install fisher theme
-omf install clearance
-omf reload
-omf theme clearance
+# Java: link openjdk into the system JVM path
+if [ ! -e /Library/Java/JavaVirtualMachines/openjdk.jdk ]; then
+  sudo ln -sfn "$(brew --prefix)/opt/openjdk/libexec/openjdk.jdk" \
+    /Library/Java/JavaVirtualMachines/openjdk.jdk
+fi
 
-# Install and configure fzf
-brew install fzf
-$(brew --prefix)/opt/fzf/install
+# Claude Code
+if ! command -v claude >/dev/null 2>&1; then
+  curl -fsSL https://claude.ai/install.sh | bash
+fi
+claude plugin marketplace add JuliusBrussee/caveman || true
+claude plugin install caveman@caveman || true
 
-# Install tmux + oh-my-tmux
-brew install tmux
-git clone https://github.com/gpakosz/.tmux.git ~/oh-my-tmux
-ln -s -f ~/oh-my-tmux/.tmux.conf ~/.tmux.conf
-cp .tmux.conf.local ~/.tmux.conf.local
-
-# Fonts (Nerd Font variant for nvim-web-devicons / lualine glyphs)
-brew install --cask font-fira-code-nerd-font
-
-# Java
-brew install openjdk
-
-# Docker
-brew install --cask docker
-
-# 1password
-brew install --cask 1password
-
-# VLC
-brew install --cask vlc
-
-# Claude Code quality of life
-brew install rtk
-claude plugin marketplace add JuliusBrussee/caveman
-claude plugin install caveman@caveman
-
-# Install Claude Code tmux notification scripts
+# Claude Code tmux notification scripts
 mkdir -p ~/.claude/scripts
 cp claude/scripts/tmux-claude-notify.sh ~/.claude/scripts/
 cp claude/scripts/tmux-claude-clear.sh ~/.claude/scripts/
 chmod +x ~/.claude/scripts/tmux-claude-notify.sh ~/.claude/scripts/tmux-claude-clear.sh
 
-# Add Claude Code Stop hook to ~/.claude/settings.json (creates file if missing)
+# Register the Stop hook in ~/.claude/settings.json (idempotent)
 python3 - <<'PYEOF'
 import json, os
 
@@ -103,7 +80,6 @@ if os.path.exists(path):
 hook = {"type": "command", "command": "bash ~/.claude/scripts/tmux-claude-notify.sh"}
 stop_hooks = settings.setdefault("hooks", {}).setdefault("Stop", [])
 
-# Only add if not already present
 if not any(h.get("hooks", []) == [hook] for h in stop_hooks):
     stop_hooks.append({"hooks": [hook]})
 
