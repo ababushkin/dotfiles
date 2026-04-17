@@ -1,0 +1,21 @@
+as per install Z (zoxide) so that it works across zsh and fish (https://github.com/ajeetdsouza/zoxide) -- read/research carefully
+
+---
+
+does my fish shell offer anything substantially better/different to what my zsh has?
+
+---
+
+lets make a plan to ditch fish and make zsh do everything fish can as well
+
+---
+
+why wouldn't you add the poetry completions to the plan? also add clean up activities to the plan
+
+---
+
+you don't need to add the clean up to the install script - the cleanup is a one time thing only
+
+---
+
+go

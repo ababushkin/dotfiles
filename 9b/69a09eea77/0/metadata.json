@@ -1,0 +1,97 @@
+{
+  "cli_version": "0.5.5",
+  "checkpoint_id": "9b69a09eea77",
+  "session_id": "497eee2c-8221-4caf-8145-025426ca2ed5",
+  "strategy": "manual-commit",
+  "created_at": "2026-04-17T15:53:24.654346Z",
+  "branch": "master",
+  "checkpoints_count": 6,
+  "files_touched": [
+    ".zshrc",
+    "Brewfile",
+    "README.md",
+    "config.fish",
+    "fish_plugins",
+    "install-core.sh",
+    "install.sh"
+  ],
+  "agent": "Claude Code",
+  "model": "claude-opus-4-7[1m]",
+  "turn_id": "020dee788436",
+  "token_usage": {
+    "input_tokens": 128,
+    "cache_creation_tokens": 97703,
+    "cache_read_tokens": 4285269,
+    "output_tokens": 20090,
+    "api_call_count": 78
+  },
+  "session_metrics": {
+    "turn_count": 6
+  },
+  "initial_attribution": {
+    "calculated_at": "2026-04-17T15:53:24.64714Z",
+    "agent_lines": 46,
+    "agent_removed": 36,
+    "human_added": 0,
+    "human_modified": 0,
+    "human_removed": 0,
+    "total_committed": 46,
+    "total_lines_changed": 82,
+    "agent_percentage": 100,
+    "metric_version": 2
+  },
+  "prompt_attributions": [
+    {
+      "checkpoint_number": 1,
+      "user_lines_added": 0,
+      "user_lines_removed": 0,
+      "agent_lines_added": 0,
+      "agent_lines_removed": 0
+    },
+    {
+      "checkpoint_number": 2,
+      "user_lines_added": 0,
+      "user_lines_removed": 0,
+      "agent_lines_added": 8,
+      "agent_lines_removed": 2
+    },
+    {
+      "checkpoint_number": 3,
+      "user_lines_added": 0,
+      "user_lines_removed": 0,
+      "agent_lines_added": 8,
+      "agent_lines_removed": 2
+    },
+    {
+      "checkpoint_number": 4,
+      "user_lines_added": 0,
+      "user_lines_removed": 0,
+      "agent_lines_added": 8,
+      "agent_lines_removed": 2
+    },
+    {
+      "checkpoint_number": 5,
+      "user_lines_added": 0,
+      "user_lines_removed": 0,
+      "agent_lines_added": 8,
+      "agent_lines_removed": 2
+    },
+    {
+      "checkpoint_number": 6,
+      "user_lines_added": 0,
+      "user_lines_removed": 0,
+      "agent_lines_added": 8,
+      "agent_lines_removed": 2
+    },
+    {
+      "checkpoint_number": 7,
+      "user_lines_added": 33,
+      "user_lines_removed": 0,
+      "agent_lines_added": 48,
+      "agent_lines_removed": 38,
+      "user_added_per_file": {
+        "com.googlecode.iterm2.plist": 33
+      }
+    }
+  ]
+}
