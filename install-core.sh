@@ -1,4 +1,6 @@
 #!/bin/bash
+# Core: Homebrew packages, shell configs, editor, mise toolchains, Claude Code.
+# Run via ./install.sh (orchestrator) or directly.
 set -euo pipefail
 
 cd "$(dirname "$0")"
