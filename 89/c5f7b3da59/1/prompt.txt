@@ -1,0 +1,1 @@
+lets convert my nvim to use telescope as per the detailed instructions here: https://github.com/nvim-telescope/telescope.nvim - there are lots of specific recommendations that we should follow - research carefully as i use fzf currently
