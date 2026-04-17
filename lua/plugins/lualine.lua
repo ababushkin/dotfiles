@@ -4,7 +4,7 @@ return {
   event = "VeryLazy",
   opts = {
     options = {
-      theme = "gruvbox",
+      theme = "catppuccin",
       globalstatus = true,
       section_separators = "",
       component_separators = "",
