@@ -4,9 +4,8 @@
 # Core CLI
 brew "git"
 brew "gh"
-brew "ripgrep"
-brew "fd"                 # used by fzf so it respects .gitignore
-brew "fzf"
+brew "ripgrep"            # required by telescope live_grep/grep_string
+brew "fd"                 # preferred finder for telescope find_files
 brew "tmux"
 brew "fish"
 brew "starship"
