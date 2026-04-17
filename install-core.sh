@@ -62,9 +62,11 @@ fi
 # rtk (LLM output filter) — registers its own PreToolUse hook in ~/.claude/settings.json
 rtk init -g || true
 
-# Caveman plugin
+# Plugin marketplaces + installed plugins
 claude plugin marketplace add JuliusBrussee/caveman || true
 claude plugin install caveman@caveman || true
+claude plugin marketplace add addyosmani/agent-skills || true
+claude plugin install agent-skills@addy-agent-skills || true
 
 # Global Claude Code user settings (permissions + env) — only install if missing
 mkdir -p ~/.claude
