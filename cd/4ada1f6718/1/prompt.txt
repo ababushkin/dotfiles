@@ -1,0 +1,1 @@
+i'm seeing this error when i start nvim "Theme `catppuccin` not found, falling back to `auto`. Check if spelling is right

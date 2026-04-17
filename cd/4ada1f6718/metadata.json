@@ -3,7 +3,7 @@
   "checkpoint_id": "cd4ada1f6718",
   "strategy": "manual-commit",
   "branch": "master",
-  "checkpoints_count": 0,
+  "checkpoints_count": 1,
   "files_touched": [
     "lua/plugins/lualine.lua"
   ],
@@ -13,13 +13,19 @@
       "transcript": "/cd/4ada1f6718/0/full.jsonl",
       "content_hash": "/cd/4ada1f6718/0/content_hash.txt",
       "prompt": ""
+    },
+    {
+      "metadata": "/cd/4ada1f6718/1/metadata.json",
+      "transcript": "/cd/4ada1f6718/1/full.jsonl",
+      "content_hash": "/cd/4ada1f6718/1/content_hash.txt",
+      "prompt": "/cd/4ada1f6718/1/prompt.txt"
     }
   ],
   "token_usage": {
-    "input_tokens": 19,
-    "cache_creation_tokens": 34367,
-    "cache_read_tokens": 404415,
-    "output_tokens": 4658,
-    "api_call_count": 9
+    "input_tokens": 35,
+    "cache_creation_tokens": 37523,
+    "cache_read_tokens": 728450,
+    "output_tokens": 6758,
+    "api_call_count": 15
   }
 }
