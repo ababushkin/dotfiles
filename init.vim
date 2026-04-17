@@ -1,3 +1,10 @@
+" Auto-install vim-plug
+let data_dir = has('nvim') ? stdpath('data') . '/site' : '~/.vim'
+if empty(glob(data_dir . '/autoload/plug.vim'))
+  silent execute '!curl -fLo '.data_dir.'/autoload/plug.vim --create-dirs  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+
 " Leader
 let mapleader = " "
 
@@ -109,37 +116,24 @@ Plug 'scrooloose/nerdtree'
 Plug 'tpope/vim-commentary'
 Plug 'djoshea/vim-autoread'
 Plug 'https://github.com/tpope/vim-fugitive.git'
-
-if has('nvim')
-  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-else
-  Plug 'Shougo/deoplete.nvim'
-  Plug 'roxma/nvim-yarp'
-  Plug 'roxma/vim-hug-neovim-rpc'
-endif
-Plug 'wakatime/vim-wakatime'
-Plug 'tbodt/deoplete-tabnine', { 'do': './install.sh' }
 Plug 'prettier/vim-prettier'
 
 call plug#end()
 
-" Enable autocomplete via deoplete
-let g:deoplete#enable_at_startup = 1
-
 """"""""""""
 "  Airline
 """"""""""""
-" set laststatus=2
-" let g:airline#extensions#tabline#enabled = 1
-" let g:airline#extensions#tabline#fnamemod = ':t'
-" let g:airline_theme = 'gruvbox'
+set laststatus=2
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#fnamemod = ':t'
+let g:airline_theme = 'gruvbox'
 
 set background=dark
 let g:gruvbox_contrast_dark = 'hard'
 
 " Trim white space on save
-" let g:better_whitespace_enabled=1
-" let g:strip_whitespace_on_save=1
+let g:better_whitespace_enabled=1
+let g:strip_whitespace_on_save=1
 
 
 " NERDTress File highlighting
