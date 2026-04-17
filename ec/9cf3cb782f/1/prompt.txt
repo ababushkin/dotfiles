@@ -1,0 +1,9 @@
+i'm seeing this error when ever i open a new iterm shell window: /Users/anton/.zshenv:3: command not found: mise
+
+---
+
+b
+
+---
+
+commit
