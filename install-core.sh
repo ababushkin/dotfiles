@@ -20,6 +20,8 @@ poetry completions zsh > ~/.zfunc/_poetry
 
 # Shell config
 cp .zshrc ~/.zshrc
+cp .zshenv ~/.zshenv
+cp .zprofile ~/.zprofile
 
 # Neovim config (lazy.nvim auto-installs on first launch)
 mkdir -p ~/.config/nvim
