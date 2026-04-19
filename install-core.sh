@@ -12,6 +12,12 @@ export PATH="$HOME/.local/bin:$PATH"
 brew update
 brew bundle --file=Brewfile
 
+# Homebrew installs /opt/homebrew/share as group-writable (admin). zsh compinit
+# refuses to load completions from group-writable fpath dirs since another admin
+# could plant a malicious completion, executed on next tab-complete. Drop g+w so
+# compinit loads silently instead of prompting on every new shell.
+chmod g-w "$(brew --prefix)/share" 2>/dev/null || true
+
 # Python tooling
 pipx ensurepath
 pipx list --short 2>/dev/null | grep -q '^poetry ' || pipx install poetry
