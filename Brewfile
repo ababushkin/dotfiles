@@ -2,39 +2,41 @@
 # Install with: brew bundle --file=Brewfile
 
 # Core CLI
-brew "git"
-brew "gh"
-brew "ripgrep"            # required by telescope live_grep/grep_string
-brew "fd"                 # preferred finder for telescope find_files
-brew "tmux"
-brew "starship"
-brew "mise"               # Ruby/Node/Python runtime manager
-brew "zoxide"             # smarter cd (z <dir>); init in .zshrc
+brew 'git'
+brew 'gh'
+brew 'ripgrep'            # required by telescope live_grep/grep_string
+brew 'fd'                 # preferred finder for telescope find_files
+brew 'tmux'
+brew 'starship'
+brew 'mise'               # Ruby/Node/Python runtime manager
+brew 'zoxide'             # smarter cd (z <dir>); init in .zshrc
 
 # zsh quality-of-life (sourced from .zshrc)
-brew "zsh-autosuggestions"
-brew "zsh-fast-syntax-highlighting"
-brew "zsh-history-substring-search"
+brew 'zsh-autosuggestions'
+brew 'zsh-fast-syntax-highlighting'
+brew 'zsh-history-substring-search'
 
 # Editor
-brew "neovim"
+brew 'neovim'
 
 # Python tooling
-brew "pipx"
+brew 'pipx'
 
 # Ruby build dependency — https://stackoverflow.com/q/78817340
-brew "libyaml"
+brew 'libyaml'
 
 # Java
-brew "openjdk"
+brew 'openjdk'
 
 # Claude Code QoL
-brew "rtk"
+brew 'rtk'
 
 # Casks
-cask "font-fira-code-nerd-font"
-cask "docker-desktop"
-cask "1password"
-cask "vlc"
-cask "iterm2"
-cask "caffeine"
+cask 'font-fira-code-nerd-font'
+cask 'docker-desktop'
+cask '1password'
+cask 'vlc'
+cask 'iterm2'
+cask 'caffeine'
+cask 'cmux'
+cask 'tolaria'
