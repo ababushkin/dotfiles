@@ -28,6 +28,8 @@
 	<true/>
 	<key>Default Bookmark Guid</key>
 	<string>dotfiles-default-profile</string>
+	<key>Default Browser Profile Guid</key>
+	<string>dotfiles-default-profile</string>
 	<key>HapticFeedbackForEsc</key>
 	<false/>
 	<key>HideTab</key>
@@ -376,6 +378,8 @@
 			<string>dotfiles-default-profile</string>
 			<key>Horizontal Spacing</key>
 			<real>1</real>
+			<key>Icon</key>
+			<integer>1</integer>
 			<key>Jobs to Ignore</key>
 			<array>
 				<string>rlogin</string>
