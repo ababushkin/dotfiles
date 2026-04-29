@@ -62,6 +62,11 @@ if ! command -v claude >/dev/null 2>&1; then
   curl -fsSL https://claude.ai/install.sh | bash
 fi
 
+# aider (AI pair-programming CLI — isolated Python env via uv)
+if ! command -v aider >/dev/null 2>&1; then
+  curl -LsSf https://aider.chat/install.sh | sh
+fi
+
 # rtk (LLM output filter) — registers its own PreToolUse hook in ~/.claude/settings.json
 rtk init -g || true
 
