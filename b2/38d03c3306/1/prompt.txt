@@ -1,0 +1,1 @@
+Brewfile is my main source of truth - i recently installed some extra packages using brew, that are no longer in my Brewfile - is there a way to find what they are and uninstall them
