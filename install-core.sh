@@ -51,16 +51,6 @@ mise use -g ruby@3.3
 ln -sf ~/oh-my-tmux/.tmux.conf ~/.tmux.conf
 cp .tmux.conf.local ~/.tmux.conf.local
 
-# iTerm2: load prefs from this repo folder so edits are tracked.
-# Must be set BEFORE first launch or iTerm2 will overwrite with its defaults.
-ITERM_PREFS_DIR="$(pwd)"
-defaults write com.googlecode.iterm2 PrefsCustomFolder -string "$ITERM_PREFS_DIR"
-defaults write com.googlecode.iterm2 LoadPrefsFromCustomFolder -bool true
-# Silently write prefs back to the folder on quit (no dialog).
-#   2 = "Save" (auto), 1 = "Lose changes", 0 = prompt
-defaults write com.googlecode.iterm2 NoSyncNeverRemindPrefsChangesLostForFile -bool true
-defaults write com.googlecode.iterm2 NoSyncNeverRemindPrefsChangesLostForFileSelection -integer 2
-
 # Java: link openjdk into the system JVM path
 if [ ! -e /Library/Java/JavaVirtualMachines/openjdk.jdk ]; then
   sudo ln -sfn "$(brew --prefix)/opt/openjdk/libexec/openjdk.jdk" \

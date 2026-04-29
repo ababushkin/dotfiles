@@ -25,9 +25,6 @@ brew 'pipx'
 # Ruby build dependency — https://stackoverflow.com/q/78817340
 brew 'libyaml'
 
-# Java
-brew 'openjdk'
-
 # Claude Code QoL
 brew 'rtk'
 
@@ -36,8 +33,8 @@ cask 'font-fira-code-nerd-font'
 cask 'docker-desktop'
 cask '1password'
 cask 'vlc'
-cask 'iterm2'
 cask 'caffeine'
 cask 'cmux'
 cask 'tolaria'
 cask 'slack'
+cask 'google-chrome'
