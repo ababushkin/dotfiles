@@ -1,0 +1,1 @@
+seeing this error when i run sh or bash install-core.sh --- install-core.sh: line 47: /opt/homebrew/opt/fzf/install: No such file or directory
