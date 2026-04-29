@@ -44,7 +44,7 @@ mise use -g node@22
 mise use -g ruby@3.3
 
 # fzf keybindings & shell integration (FZF_DEFAULT_COMMAND is set in .zshrc)
-"$(brew --prefix)"/opt/fzf/install --all
+[ -f "$(brew --prefix)/opt/fzf/install" ] && "$(brew --prefix)"/opt/fzf/install --all
 
 # tmux + oh-my-tmux
 [ -d ~/oh-my-tmux ] || git clone https://github.com/gpakosz/.tmux.git ~/oh-my-tmux

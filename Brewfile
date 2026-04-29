@@ -10,6 +10,7 @@ brew 'tmux'
 brew 'starship'
 brew 'mise'               # Ruby/Node/Python runtime manager
 brew 'zoxide'             # smarter cd (z <dir>); init in .zshrc
+brew 'fzf'                # fuzzy finder; shell integration installed by install-core.sh
 
 # zsh quality-of-life (sourced from .zshrc)
 brew 'zsh-autosuggestions'
