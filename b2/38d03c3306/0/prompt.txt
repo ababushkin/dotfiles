@@ -1,0 +1,1 @@
+i no longer use iterm2, clean up my dotfiles for things related to it
