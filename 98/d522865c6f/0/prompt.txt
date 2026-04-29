@@ -1,0 +1,1 @@
+add aider (https://aider.chat/docs/install.html) to my dotfiles installation, research the best way to install it as it has a dependency on python and present me with a plan before doing it
