@@ -28,6 +28,10 @@ brew 'libyaml'
 
 # Claude Code QoL
 brew 'rtk'
+brew 'crit'
+
+# PDF Parser
+brew 'poppler'
 
 # Casks
 cask 'font-fira-code-nerd-font'
@@ -36,7 +40,6 @@ cask '1password'
 cask 'vlc'
 cask 'caffeine'
 cask 'cmux'
-cask 'tolaria'
 cask 'slack'
 cask 'google-chrome'
 cask 'openusage'
