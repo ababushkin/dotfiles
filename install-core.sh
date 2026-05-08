@@ -73,6 +73,8 @@ rtk init -g || true
 # Plugin marketplaces + installed plugins
 claude plugin marketplace add addyosmani/agent-skills || true
 claude plugin install agent-skills@addy-agent-skills || true
+claude plugin marketplace add tomasz-tomczyk/crit || true
+claude plugin install crit@crit || true
 
 # Global Claude Code user settings (permissions + env) — only install if missing
 mkdir -p ~/.claude
