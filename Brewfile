@@ -35,6 +35,8 @@ brew 'poppler'
 
 # Casks
 cask 'font-fira-code-nerd-font'
+cask 'font-playfair'
+cask 'font-ibm-plex'
 cask 'docker-desktop'
 cask '1password'
 cask 'vlc'
