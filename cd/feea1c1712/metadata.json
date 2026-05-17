@@ -1,0 +1,26 @@
+{
+  "cli_version": "0.6.1",
+  "checkpoint_id": "cdfeea1c1712",
+  "strategy": "manual-commit",
+  "branch": "master",
+  "checkpoints_count": 1,
+  "files_touched": [
+    ".gitignore",
+    "install-core.sh"
+  ],
+  "sessions": [
+    {
+      "metadata": "/cd/feea1c1712/0/metadata.json",
+      "transcript": "/cd/feea1c1712/0/full.jsonl",
+      "content_hash": "/cd/feea1c1712/0/content_hash.txt",
+      "prompt": "/cd/feea1c1712/0/prompt.txt"
+    }
+  ],
+  "token_usage": {
+    "input_tokens": 8,
+    "cache_creation_tokens": 27538,
+    "cache_read_tokens": 167576,
+    "output_tokens": 633,
+    "api_call_count": 5
+  }
+}

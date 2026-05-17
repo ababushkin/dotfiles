@@ -1,0 +1,1 @@
+add ccusage installation to my dotfiles, npm global install preferred
