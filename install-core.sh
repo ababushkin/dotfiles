@@ -43,6 +43,9 @@ mise settings add idiomatic_version_file_enable_tools ruby || true
 mise use -g node@22
 mise use -g ruby@3.3
 
+# Global npm packages
+npm install -g ccusage
+
 # fzf keybindings & shell integration (FZF_DEFAULT_COMMAND is set in .zshrc)
 [ -f "$(brew --prefix)/opt/fzf/install" ] && "$(brew --prefix)"/opt/fzf/install --all
 
